@@ -22,7 +22,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.plcoding.stockmarketapp"
+        applicationId "io.jhnplotim.mobile.stockmarketapp"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -57,6 +57,14 @@ android {
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    applicationVariants.all { variant ->
+        kotlin.sourceSets {
+            getByName(variant.name) {
+                kotlin.srcDir("build/generated/ksp/${variant.name}/kotlin")
+            }
         }
     }
 }
