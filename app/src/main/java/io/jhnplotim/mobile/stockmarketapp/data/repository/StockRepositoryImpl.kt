@@ -1,7 +1,9 @@
 package io.jhnplotim.mobile.stockmarketapp.data.repository
 
+import io.jhnplotim.mobile.stockmarketapp.data.csv.CSVParser
 import io.jhnplotim.mobile.stockmarketapp.data.local.StockDatabase
 import io.jhnplotim.mobile.stockmarketapp.data.mapper.toCompanyListing
+import io.jhnplotim.mobile.stockmarketapp.data.mapper.toCompanyListingEntity
 import io.jhnplotim.mobile.stockmarketapp.data.remote.StockApi
 import io.jhnplotim.mobile.stockmarketapp.domain.model.CompanyListing
 import io.jhnplotim.mobile.stockmarketapp.domain.repository.StockRepository
@@ -16,7 +18,8 @@ import javax.inject.Singleton
 @Singleton
 class StockRepositoryImpl @Inject constructor(
     val api: StockApi,
-    private val db: StockDatabase
+    private val db: StockDatabase,
+    private val companyListingsParser: CSVParser<CompanyListing>
 ): StockRepository {
 
     private val dao = db.dao
@@ -39,13 +42,29 @@ class StockRepositoryImpl @Inject constructor(
             }
             val remoteListing = try {
                 val response = api.getListings()
+                companyListingsParser.parse(response.byteStream())
             }  catch (e: IOException) {
                 e.printStackTrace()
                 emit(Resource.Error("Couldn't load data"))
+                null
             }
             catch (e: HttpException) {
                 e.printStackTrace()
                 emit(Resource.Error("Couldn't load data"))
+                null
+            }
+
+            remoteListing?.let { listings ->
+                dao.clearCompanyListings()
+                dao.insertCompanyListings(
+                    listings.map { it.toCompanyListingEntity() }
+                )
+                emit(Resource.Success(
+                    data =  dao
+                        .searchCompanyListing("")
+                        .map { it.toCompanyListing() }
+                ))
+                emit(Resource.Loading(false))
             }
         }
     }
