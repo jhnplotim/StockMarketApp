@@ -8,16 +8,16 @@ It is based on a very awesome android Youtube tutorial by Phillip; [How to Build
 
 ## Key Features
 - [Clean architecture][clean_arc_ref] with the following layers i.e. The [data layer][data_layer_ref], The [domain layer][domain_layer_ref] (NOTE: Use cases are not used) & The [presentation / ui layer][ui_layer_ref]
-- [Jetpack compose] [compose_ref] views
-- Navigation with the help of the [Compose Destinations library] [costa_comp_nav_ref]
+- [Jetpack compose][compose_ref] views
+- Navigation with the help of the [Compose Destinations library][costa_comp_nav_ref]
 - [Retrofit] [retrofit_ref] is used for Networking
 - [Hilt] [hilt_ref] is used for Dependency Injection
 - **Swipe to refresh** functionality is implemented using the [Accompanist library][swr_ref]
 - **Search functionality** powered by _Kotlin Flows_
 - A graph is drawing using the _Compose Canvas APIs_
-- Offline functionality is implemented using [Room] [room_ref] as a single source of truth
-- The [Alpha Vantage Stock API] [stock_api_ref] with a limited free API key is used in the app
-- CSV parsing is implemented with the [OpenCSV library] [csv_ref]
+- Offline functionality is implemented using [Room][room_ref] as a single source of truth
+- The [Alpha Vantage Stock API][stock_api_ref] with a limited free API key is used in the app
+- CSV parsing is implemented with the [OpenCSV library][csv_ref]
 
 ## App Screens
 ### Company Listings Screen
