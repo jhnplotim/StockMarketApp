@@ -1,6 +1,8 @@
 package io.jhnplotim.mobile.stockmarketapp.data.mapper
 
 import io.jhnplotim.mobile.stockmarketapp.data.local.CompanyListingEntity
+import io.jhnplotim.mobile.stockmarketapp.data.remote.dto.CompanyInfoDto
+import io.jhnplotim.mobile.stockmarketapp.domain.model.CompanyInfo
 import io.jhnplotim.mobile.stockmarketapp.domain.model.CompanyListing
 
 
@@ -18,5 +20,15 @@ fun CompanyListing.toCompanyListingEntity(): CompanyListingEntity {
         name = name,
         symbol = symbol,
         exchange = exchange
+    )
+}
+
+fun CompanyInfoDto.toCompanyInfo(): CompanyInfo {
+    return CompanyInfo(
+        symbol = symbol ?: "",
+        description = description ?: "",
+        name =  name ?: "",
+        country = country ?: "",
+        industry = industry ?: ""
     )
 }

@@ -1,4 +1,4 @@
-package com.plcoding.stockmarketapp
+package io.jhnplotim.mobile.stockmarketapp
 
 import org.junit.Test
 
