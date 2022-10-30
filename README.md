@@ -34,12 +34,11 @@ It is based on a very awesome android Youtube tutorial by Phillip; [How to Build
 
 ### Demo video
 
-<video width="320" height="240" controls>
-  <source src="./readme_files/app_demo.mov" type="video/mp4">
-</video>
+https://user-images.githubusercontent.com/3297681/198876371-511553a4-8dfe-498e-95bc-9eec29fef2ec.mov
+
 
 ## Git Branches
-The project uses a *main*, *develop* & *feature/*** branches inspired by [Git-flow-workflow] [git_flow_ref].
+The project uses a *main*, *develop* & *feature/*** branches inspired by [Git-flow-workflow][git_flow_ref].
 
 ### main
 Contains the final implementation
@@ -54,7 +53,7 @@ The active development branch
 The feature branches (not deleted) showing the evolution of the project implementation for each feature. All feature branches have already been merged into the development branch.
 
 ## Important Info
-The API key for the Alpha Vantage is currently hardcoded. Feel free to use your own.
+The API key for the Alpha Vantage is currently hardcoded. Feel free to use your own. You can get [here][get_stock_api_ref].
 
 
 [phil_tut_ref]: https://www.youtube.com/watch?v=uLs2FxFSWU4
@@ -69,5 +68,6 @@ The API key for the Alpha Vantage is currently hardcoded. Feel free to use your 
 [swr_ref]: https://google.github.io/accompanist/swiperefresh/
 [room_ref]: https://developer.android.com/jetpack/androidx/releases/room
 [stock_api_ref]: https://www.alphavantage.co
+[get_stock_api_ref]: https://www.alphavantage.co/support/#api-key
 [csv_ref]: https://opencsv.sourceforge.net
 [git_flow_ref]: https://www.atlassian.com/de/git/tutorials/comparing-workflows/gitflow-workflow
